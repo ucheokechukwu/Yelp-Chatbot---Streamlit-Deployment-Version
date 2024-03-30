@@ -2,9 +2,8 @@ import os
 import requests
 import streamlit as st
 from src.backend import entrypoint
-print("next")
 
-CHATBOT_URL = "http://localhost:8000/yelp-agent"
+CHATBOT_URL = st.secrets["CHATBOT_URL"]
 
 with st.sidebar:
     st.header("About")

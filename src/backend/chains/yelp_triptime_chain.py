@@ -12,7 +12,7 @@ import streamlit as st
 YELP_QA_MODEL=st.secrets["YELP_QA_MODEL"]
 
 
-def invoke_trip_time(inputs):
+def _invoke_trip_time(inputs):
     return get_trip_time(**inputs)
 
 instructions = """You are an expert extraction algorithm. Only extract information from the prompt.
@@ -50,7 +50,7 @@ openai_functions = [convert_to_openai_function(Params)]
 model = ChatOpenAI(model=YELP_QA_MODEL, temperature=0)
 
 parser = JsonOutputFunctionsParser()
-yelp_triptime_chain = prompt | model.bind(functions=openai_functions) | parser | invoke_trip_time
+yelp_triptime_chain = prompt | model.bind(functions=openai_functions) | parser | _invoke_trip_time
 
 def yelp_triptime_chain_invoke(prompt):
     prompt = {"prompt":prompt}

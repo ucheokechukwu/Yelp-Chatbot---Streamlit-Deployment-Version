@@ -17,8 +17,9 @@ Dataset provided by [Yelp](https://www.yelp.com/dataset).
 ### To Do
 1. `yelp_bulk_csv_write.py`: Fix issues with specifying data types that are affecting aggregation queries.
 2. Scale up (< 10% total data currently deployed due to github file size limitations.)  Goal: Full Yelp datasets, including `tips.csv`.
-3. Add Memory i.e. making the YelpBot a conversational bot.
+3. ✨ Enhance TripTimes tool: add query filter for location specification.
 4. ✨ Restrict to domain-specific queries. ("I can only answer questions pertaining to Yelp data.")
-5. ✨ New Tool: `nearest_business_chain.py`
+5. ✨ New Tool: ProximityFinder. (find closest business by trip time).  `tools/nearest_business_chain.py`
+6. ✨ Add Memory i.e. making the YelpBot a conversational bot.
 * ~~`yelp_agent.py`: Complete `TripTimes` Tool integration.~~ ✅ 29.03.2024
 * ~~Deploy on streamlit community cloud.~~ ✅ 30.03.2024

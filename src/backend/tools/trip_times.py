@@ -83,7 +83,7 @@ def _get_current_businesses() -> list[str]:
     )
     return pd.DataFrame(current_businesses)
     
-def get_trip_time(business: str or pd.Series, start_location: str) -> (float, str):
+def get_trip_time(business: str or pd.DataFrame, start_location: str) -> (float, str):
     """Get the current trip time to businesses from a given location in seconds."""
     if type(business) == str:
         try:
