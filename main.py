@@ -18,11 +18,11 @@ with st.sidebar:
                 """
     )
     st.header("Example Questions")
-    st.markdown("-Where do people think were the best party venues in 2022?")
-    st.markdown("-Which state has the lowest reviewed department stores")
-    st.markdown("-Which city has the most recreation facilities?")
-    st.markdown("-Where do people find cheap clothes in Texas?")
-    st.markdown("-What's the nearest coffee shop to 60 Bridge St, Lowell 01850?")
+    st.markdown("- Where do people think were the best party venues in 2022?")
+    st.markdown("- Which state has the lowest reviewed department stores")
+    st.markdown("- Which city has the most recreation facilities?")
+    st.markdown("- Where do people find cheap clothes in Texas?")
+    st.markdown("- What's the nearest coffee shop to 60 Bridge St, Lowell 01850?")
     
 st.title("YelpBot 🤖")
 st.info(
