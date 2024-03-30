@@ -11,7 +11,6 @@ from src.backend.chains.yelp_review_chain import reviews_vector_chain
 from src.backend.chains.yelp_cypher_chain import yelp_cypher_chain
 from src.backend.chains.yelp_triptime_chain import yelp_triptime_chain_invoke
 
-# YELP_AGENT_MODEL = os.getenv("YELP_AGENT_MODEL")
 YELP_AGENT_MODEL = st.secrets["YELP_AGENT_MODEL"]
 
 from langchain import hub

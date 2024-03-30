@@ -5,15 +5,6 @@ from langchain.chains import GraphCypherQAChain
 from langchain_openai import ChatOpenAI
 from langchain.prompts import PromptTemplate
 
-# YELP_CYPHER_MODEL=st.secrets["YELP_CYPHER_MODEL")
-# YELP_QA_MODEL=st.secrets["YELP_QA_MODEL")
-#
-# graph = Neo4jGraph(
-#     url=st.secrets["NEO4J_URI"),
-#     username=st.secrets["NEO4J_USERNAME"),
-#     password=st.secrets["NEO4J_PASSWORD"),
-# )
-
 YELP_CYPHER_MODEL=st.secrets["YELP_CYPHER_MODEL"]
 YELP_QA_MODEL=st.secrets["YELP_QA_MODEL"]
 
