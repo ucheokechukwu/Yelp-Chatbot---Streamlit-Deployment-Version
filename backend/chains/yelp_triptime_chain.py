@@ -5,7 +5,7 @@ from langchain_openai import ChatOpenAI
 from langchain.output_parsers.openai_functions import JsonOutputFunctionsParser
 from langchain.prompts import PromptTemplate
 
-from src.backend.tools.trip_times import get_trip_time
+from backend.tools.trip_times import get_trip_time
 
 import os
 import streamlit as st

@@ -6,10 +6,10 @@ from langchain.agents import (
     Tool,
     AgentExecutor,)
     
-from src.backend.tools.trip_times import get_trip_time, get_nearest_business
-from src.backend.chains.yelp_review_chain import reviews_vector_chain
-from src.backend.chains.yelp_cypher_chain import yelp_cypher_chain
-from src.backend.chains.yelp_triptime_chain import yelp_triptime_chain_invoke
+from backend.tools.trip_times import get_trip_time, get_nearest_business
+from backend.chains.yelp_review_chain import reviews_vector_chain
+from backend.chains.yelp_cypher_chain import yelp_cypher_chain
+from backend.chains.yelp_triptime_chain import yelp_triptime_chain_invoke
 
 YELP_AGENT_MODEL = st.secrets["YELP_AGENT_MODEL"]
 

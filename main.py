@@ -1,7 +1,7 @@
 import os
 import requests
 import streamlit as st
-from src.backend import entrypoint
+from backend import entrypoint
 
 CHATBOT_URL = st.secrets["CHATBOT_URL"]
 

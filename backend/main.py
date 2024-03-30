@@ -1,7 +1,7 @@
 from fastapi import FastAPI
-from src.backend.agents.yelp_agent import yelp_agent_executor
-from src.backend.models.yelp_query import YelpQueryInput, YelpQueryOutput
-from src.backend.utils.async_utils import async_retry
+from backend.agents.yelp_agent import yelp_agent_executor
+from backend.models.yelp_query import YelpQueryInput, YelpQueryOutput
+from backend.utils.async_utils import async_retry
 
 app = FastAPI(
     title="Yelp Chatbot 🤖",
