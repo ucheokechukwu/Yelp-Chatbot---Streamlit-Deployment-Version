@@ -74,15 +74,18 @@ def _get_current_businesses(business_name: str="", city: str="", state: str="") 
         password=os.getenv("NEO4J_PASSWORD"),
         )
     # construct filter
+    business_name = business_name.lower().replace("'", "\\'")
     q = f"b.state = '{state}'" * bool(state) + " AND " * bool (state and city) + f"toLower(b.city) = '{city.lower()}'" * bool(city)
-    query = (f"""MATCH (b:Business) WHERE toLower(b.name) CONTAINS '{business_name.lower()}' AND """ 
-             + q 
-             + """\nRETURN b.name AS name, 
-                b.address as address, 
-                b.city as city,
-                b.state as state,
-                b.postal_code as postal_code 
-                LIMIT 5""")                
+    query = (f"""MATCH (b:Business) 
+            WHERE toLower(b.name) CONTAINS '{business_name}' AND {q}
+            RETURN b.name AS name, 
+                   b.address AS address, 
+                   b.city AS city,
+                   b.state AS state,
+                   b.postal_code AS postal_code 
+            LIMIT 5""")
+
+    print(query)               
     current_businesses = graph.query(query)
     return pd.DataFrame(current_businesses)
     
@@ -94,14 +97,14 @@ def _get_trip_time_to_business(b: pd.Series, start_location: str) -> (float, str
     return _get_triptime(start_location, end_location)                      
                                                      
 def get_trip_time(start_location: str="",
-                  business_name: str="",
+                  business: str="",
                   city:str ="",
                   state:str ="") -> "":
     """required arguments: start_location, business_name, at least one of [city, state]"""
     try:
-        if not (start_location and business_name and (city or state)):
+        if not (start_location and business and (city or state)):
             raise ValueError("not enough information for geolocation and routing.")
-        current_businesses = _get_current_businesses(business_name, city, state)
+        current_businesses = _get_current_businesses(business, city, state)
         if current_businesses.empty:
             raise ValueError("returned empty database")
     except Exception as e:
