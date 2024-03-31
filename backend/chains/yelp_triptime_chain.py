@@ -13,7 +13,6 @@ YELP_QA_MODEL=st.secrets["YELP_QA_MODEL"]
 
 
 def _invoke_trip_time(inputs):
-    print(inputs)
     return get_trip_time(**inputs)
 
 instructions = """You are an expert extraction algorithm. Only extract information from the prompt.

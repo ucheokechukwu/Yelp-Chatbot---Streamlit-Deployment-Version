@@ -56,12 +56,8 @@ def _get_triptime(start_location, end_location):
 
     # Get geolocation of start and locations
     start_lon_lat = _get_geolocation(start_location)
-    print(start_location)
-    print(start_lon_lat)
     time.sleep(5)
     end_lon_lat = _get_geolocation(end_location)
-    print(end_location)
-    print(end_lon_lat)
 
     duration = _get_routetime(start_lon_lat, end_lon_lat)
     trip_time = _secs_to_hr_min(duration) if duration else None
@@ -88,8 +84,7 @@ def _get_current_businesses(business_name: str="", city: str="", state: str="") 
                    b.state AS state,
                    b.postal_code AS postal_code 
             LIMIT 5""")
-
-    print(query)               
+             
     current_businesses = graph.query(query)
     return pd.DataFrame(current_businesses)
     
