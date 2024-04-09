@@ -52,20 +52,20 @@ if prompt := st.chat_input("What do you want to know?"):
         response = requests.post(CHATBOT_URL, json=data)
         if response.status_code == 200:
             output_text = response.json()["output"]
-            # explanation = response.json()["intermediate_steps"]
+            explanation = response.json()["intermediate_steps"]
             st.session_state.chat_history += ['Human: '+prompt+'\nAI: '+output_text+'\n']
         else:
             output_text = """An error occurred while processing your message.
             Please try again or rephrase your message."""
-            # explantion = output_text
+            explantion = output_text
     
     st.chat_message("assistant").markdown(output_text)
-    # st.status("How was this generated", state="complete").info(explanation)
+    st.status("How was this generated", state="complete").info(explanation)
     
     st.session_state.messages.append(
         {"role": "assistant",
         "output": output_text,
-        # "explanation": explanation
+        "explanation": explanation
     }
     )
     

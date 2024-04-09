@@ -9,10 +9,11 @@ app = FastAPI(
 )
 
 @async_retry(max_retries=10, delay=1)
-async def invoke_agent_with_retry(query:str):
+async def invoke_agent_with_retry(query:YelpQueryInput):
     """Retry the agent if the tool fails to run.
     Can happen during intermittent connection issues to external APIs."""
-    return await yelp_agent_executor.ainvoke({"input":query})
+    # return await yelp_agent_executor.ainvoke({"input":query})
+    return await yelp_agent_executor.ainvoke({"input":query.input, "chat_history":query.chat_history}) 
     
 @app.get("/")
 async def get_status():
@@ -20,6 +21,6 @@ async def get_status():
 
 @app.post("/yelp-agent")
 async def query_yelp_agent(query: YelpQueryInput) -> YelpQueryOutput:
-    response = await invoke_agent_with_retry(query.text)
+    response = await invoke_agent_with_retry(query)
     response['intermediate_steps'] = [str(s) for s in response['intermediate_steps']]
     return response
