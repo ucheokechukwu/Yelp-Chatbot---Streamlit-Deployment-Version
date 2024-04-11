@@ -7,6 +7,12 @@ from backend import entrypoint
 CHATBOT_URL = st.secrets["CHATBOT_URL"]
 
 with st.sidebar:
+    
+    st.header("Status Update (11.04.2024)")
+    st.markdown(
+        """Due to API credit limits, the demo is down. It will be live again on 01.05.2024. Interested users can clone the repo and update the secrets.toml file accordingly to test-run its functionality."""
+    )
+    
     st.header("About")
     st.markdown(
         """
@@ -24,6 +30,8 @@ with st.sidebar:
     st.markdown("- Which city has the most recreation facilities?")
     st.markdown("- Where do people find cheap clothes in Texas?")
     st.markdown("- How quickly can you get to Jon's Bar & Grille from 767 S 9th St, Philadelphia?")
+    
+
     
 st.title("YelpBot 🤖")
 st.info(
