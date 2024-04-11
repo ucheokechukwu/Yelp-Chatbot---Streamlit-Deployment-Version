@@ -49,9 +49,21 @@ tools = [
         the input should be "What is the trip time between Magnolia Barber Shop and 290 Central St, Lowell, MA 01852"
         """
     ),
-    
-
+    Tool(
+        name="NearestBusiness",
+        func=yelp_nearestbusiness_chain_invoke,
+        description="""Useful when asked about travel time from a specified location to a particular kind of business or business category. Prompts might include location and time-based phrases
+        like 'what is the nearest', 'what is the closest', 'how quickly', 'how fast', 'how soon', etc.
+        The prompt must have at least one full location address, and the category or kind of business. 
+        Not useful for answering questions where one location address is not specified, or the category of business is not specified. 
+        This tool cannot be used when the name of the business is specified. e.g. It is useful for "what's the nearest Supermarket?". It is not useful for "what is the nearest Walmart Store?"
+        Use the entire prompt as input to the tool. For instance, if the prompt is 
+        "where's the nearest Towing from 825 Cacique St, Santa Barbara, California", 
+        the input should be "where's the nearest Towing from 825 Cacique St, Santa Barbara, California"
+        """
+    ),
 ]
+
 chat_model = ChatOpenAI(model=YELP_AGENT_MODEL, temperature=0)
 yelp_agent = create_openai_functions_agent(
     llm=chat_model,
