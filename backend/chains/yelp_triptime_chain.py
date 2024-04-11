@@ -32,7 +32,7 @@ instructions = """You are an expert extraction algorithm. Only extract informati
     - Prompt: 'How long does it take to get from 3342 S West Shore Blvd Tampa, Florida to ABC Store?' 
     - Expected Output:
     "start_location": '3342 S West Shore Blvd Tampa, Florida',
-    "business_name": 'ABC Store'
+    "business": 'ABC Store'
     "city": 'Tampa'
     "state": 'FL'
     
